@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Evento extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $guarded = [];
 
-    protected $timestamps = true;
+    protected $primaryKey = 'id_evento';
+    protected $guarded = [];
 }

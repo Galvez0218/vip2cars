@@ -11,9 +11,10 @@ class Suscriptores extends Model
     use HasFactory, SoftDeletes;
     protected $guarded = [];
 
+    protected $primaryKey = 'id_suscriptor';
 
     public function evento()
     {
-        return $this->hasOne(Evento::class);
+        return $this->hasOne(Evento::class, 'id_evento');
     }
 }

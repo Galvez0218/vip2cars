@@ -3,16 +3,13 @@
 namespace App\Livewire;
 
 use App\Models\Evento;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Eventos extends Component
 {
     use WithPagination;
-    public function paginationView()
-    {
-        return 'vendor.livewire.custom-pagination-links-view';
-    }
     public $search;
     public $id_evento, $nombre, $fecha_ini, $fecha_fin;
 
@@ -53,17 +50,15 @@ class Eventos extends Component
     }
     public function edit($id)
     {
-        $categoria          = Evento::where('id_evento', $id)->first();
+        $evento = Evento::where('id_evento', $id)->first();
 
-        $this->id_evento    = $categoria->id_evento;
-        $this->nombre       = $categoria->nombre;
-        $this->fecha_ini    = $categoria->fecha_ini;
-        $this->fecha_fin    = $categoria->fecha_fin;
+        $this->id_evento    = $evento->id_evento;
+        $this->nombre       = $evento->nombre;
+        $this->fecha_ini    = $evento->fecha_ini;
+        $this->fecha_fin    = $evento->fecha_fin;
     }
-    public function deleteRecord(Evento $evento)
+    public function delete($id)
     {
-        // Storage::disk('public')->delete($categoria->ruta_img);
-        $categoria->delete();
-        $this->emit('swalDefaultSuccess', 'Registro eliminado correctamente.');
+        DB::table('eventos')->where('id_evento', $id)->delete();
     }
 }

@@ -3,17 +3,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                {{-- <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Buscar</h3>
-                    </div>
-                    <div class="card-body">
-                        @include('partials.search')
-                    </div>
-                </div> --}}
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Registro de categorias</h3>
+                        <h3 class="card-title">GESTION DE EVENTOS</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -80,8 +72,9 @@
                                                 class="btn btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </button>
-                                            <button wire:click="$emit('RegistroDelete',{{ $record->id_evento }})"
-                                                type="button" class="btn btn-danger btn-sm">
+
+                                            <button wire:click.prevent="delete({{ $record->id_evento }})" type="button"
+                                                class="btn btn-danger btn-sm">
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
                                         </td>
@@ -91,23 +84,10 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        {{-- {!! $records->render() !!} --}}
+                        {!! $records->render() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{-- @push('js')
-@include('partials.alerts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-        window.livewire.on('close_modal', Msg => {
-            $('#modelId').modal('hide');
-        });
-        window.livewire.on('open_modal', Msg => {
-            $('#modelId').modal('show');
-        });
-    });
-</script>
-@endpush --}}
