@@ -54,7 +54,6 @@ class Suscriptores extends Component
             'nro_documento' => $this->nro_documento,
         ]);
         $this->resetInputs();
-        $this->emit('swalDefaultSuccess', 'Guardado correctamente.');
     }
     public function resetInputs()
     {

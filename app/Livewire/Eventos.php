@@ -39,7 +39,6 @@ class Eventos extends Component
             'fecha_fin' => $this->fecha_fin,
         ]);
         $this->resetInputs();
-        $this->emit('swalDefaultSuccess', 'Guardado correctamente.');
     }
     public function resetInputs()
     {

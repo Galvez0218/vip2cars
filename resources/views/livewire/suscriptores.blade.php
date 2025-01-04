@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        {{-- {!! $records->render() !!} --}}
+                        {!! $records->render() !!}
                     </div>
                 </div>
             </div>
